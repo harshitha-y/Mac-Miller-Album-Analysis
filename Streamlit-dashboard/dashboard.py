@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit.components.v1 as components
 
 # --- Page Configuration ---
 st.set_page_config(
@@ -47,7 +48,7 @@ def main():
     #intro
     col1, col2 = st.columns([3, 3])
     with col1:
-        st.image("Streamlit-dashboard/image.png")
+        st.image("Streamlit-dashboard\image.png")
     with col2:
         st.markdown("""Mac Miller's music has always been a part of my playlist, very honest, authentic and metaphorical to me. Mac is the essence of what being human means, he would make you feel his music even if you can't fully relate. There was always a self aware undertone with him where he knows that everyone knows that being human is strange, thrilling, and impossible to truly put into words. I used to listen to ‘Good News’ as soon as I woke up for months as my everyday routine and every now and then I would realize more about his depressive state that was kinda masked in a calming song. It's brilliant to be able to do that. He was always known to be very open about his struggles and drug addiction in the interviews and his music, that vulnerability made his art resonate even more. This gave me an idea of how I could analyze his albums to actually see what emotions he was going through during three different years of his live when he made (not released) albums:
 
@@ -61,7 +62,7 @@ So, here are some results I got, after analysing lyrics in each song using Gemin
     st.divider()
 
 
-    df, long_df = load_data('Streamlit-dashboard/Analysed_data.csv')
+    df, long_df = load_data('Streamlit-dashboard\Analysed_data.csv')
 
     if long_df is not None and df is not None:
         
@@ -72,6 +73,7 @@ So, here are some results I got, after analysing lyrics in each song using Gemin
             "Choose an album to view:",
             album_list
         )
+        
 
         # Filter both dataframes for song scores
         album_data_long = long_df[long_df['album'] == selected_album]
@@ -111,13 +113,15 @@ Swimming to me feels like Mac trying to figure out how to keep moving through de
         elif selected_album == 'Circles':
             st.header(f"Album: *{selected_album}*")
             st.info('> "I just end up right at the start of the line, drawing circles." - *Circles*')
+             
+           
             st.subheader(f"The Story")
             st.markdown("""
-            *Circles* Circles was supposed to be the sister album of swimming. It feels like the other side of swimming where Mac stopped fighting and accepted his addiction. It’s way softer, more resigned and he’s tired. Tired of trying and showing the world he’s okay. A quiet acceptance that maybe the pain doesn’t go away, it just becomes a part of life. It’s reflective, almost meditative at times, but also heavy because you can sense he’s letting go of control. It’s not about beating depression, it’s about living inside it and trying to find peace within.
+            *Circles* was supposed to be the sister album of swimming. It feels like the other side of swimming where Mac stopped fighting and accepted his addiction. It’s way softer, more resigned and he’s tired. Tired of trying and showing the world he’s okay. A quiet acceptance that maybe the pain doesn’t go away, it just becomes a part of life. It’s reflective, almost meditative at times, but also heavy because you can sense he’s letting go of control. It’s not about beating depression, it’s about living inside it and trying to find peace within.
             
             "Circles" has metaphors for the cycle that he can't seem to break, "Good News” honestly shows Mac is aware of his situation while also feeling powerless to change it, “Hand Me Downs”  feels like one of the most intimate moments where Mac opens up about wanting love, stability, and someone to share life with despite his struggles.""")
             
-
+           
         st.divider()
 
         
@@ -131,7 +135,22 @@ Swimming to me feels like Mac trying to figure out how to keep moving through de
             st.metric("Most Intense Song", most_intense_song)
         with col3:
             st.metric("Average Emotion Score", f"{avg_intensity:.2f}")
+
+        # --- Song Player Section ---
+        if selected_album == 'Balloonerism':
+            embed_code = """
+               <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1JtAIBbCgomz38qPBSJzCn?utm_source=generator&theme=0" width="50%" height="160" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               """
+        elif selected_album == 'Swimming':
+                embed_code = """
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/01z2fBGB8Hl3Jd3zXe4IXR?utm_source=generator&theme=0" width="50%" height="160" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                """
         
+        elif selected_album == 'Circles':
+                embed_code = """
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4jXl6VtkFFKIt3ycUQc5LT?utm_source=generator" width="50%" height="160" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                """
+        components.html(embed_code, height=160)
         st.divider()
 
         # --- 1. Bar Chart Display ---
@@ -182,6 +201,10 @@ Swimming to me feels like Mac trying to figure out how to keep moving through de
         )
         fig_polar.update_layout(height=700)
         st.plotly_chart(fig_polar, use_container_width=True)
+
+        if selected_album == 'Swimming':
+            st.markdown("Note")
+            st.markdown("The dominance of *longing* and *melancholy* paints the album as a search for stability, but the presence of joy and calmness shows Mac still had hope and moments of clarity. It feels like the chart mirrors the idea of the album title: he’s swimming, not sinking. There’s struggle, but there’s also survival.")
 
 
         st.divider()
@@ -239,7 +262,7 @@ Swimming to me feels like Mac trying to figure out how to keep moving through de
             'You remind me, ' \
             'Shit, I need to stay in line \ You damn well are a great design" - *Hand me downs*')
 
-
+        st.divider()
         # --- 4. Emotion Spotlight Chart ---
     
         st.markdown("**Emotion Spotlight - Bar Plot**.")
@@ -292,6 +315,25 @@ Swimming to me feels like Mac trying to figure out how to keep moving through de
             fig_spotlight.update_xaxes(tickangle=90)
 
             st.plotly_chart(fig_spotlight, use_container_width=True)
+
+        if selected_album == 'Balloonerism':
+            st.markdown("")
+        elif selected_album == 'Swimming':
+            st.markdown("The decline in sadness across Swimming reflects a shift from sharp grief to a gentler, evolving melancholy and a sign of Mac’s attempt to stay positive, even though this journey ultimately loops back into the heavier reflections of Circles")
+        elif selected_album == 'Circles':
+            st.markdown("")
+        
+        st.divider()
+
+        # --- Contact Information Section ---
+        st.header("Connect With Me")
+        st.markdown(
+            """
+            - **GitHub repo:** [harshitha-y](https://github.com/harshitha-y/Mac-Miller-Album-Analysis)
+            - **LinkedIn:** [Harshitha Yalama](https://www.linkedin.com/in/harshitha-yalama-b3b9791b1/)
+            - **Email:** <a href="mailto:harshiyalama@gmail.com">harshiyalama@gmail.com</a>
+            """, unsafe_allow_html=True
+        )
 
 
 if __name__ == "__main__":
