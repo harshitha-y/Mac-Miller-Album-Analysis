@@ -48,7 +48,7 @@ def main():
     #intro
     col1, col2 = st.columns([3, 3])
     with col1:
-        st.image("Streamlit-dashboard\image.png")
+        st.image("Streamlit-dashboard/image.png")
     with col2:
         st.markdown("""Mac Miller's music has always been a part of my playlist, very honest, authentic and metaphorical to me. Mac is the essence of what being human means, he would make you feel his music even if you can't fully relate. There was always a self aware undertone with him where he knows that everyone knows that being human is strange, thrilling, and impossible to truly put into words. I used to listen to ‘Good News’ as soon as I woke up for months as my everyday routine and every now and then I would realize more about his depressive state that was kinda masked in a calming song. It's brilliant to be able to do that. He was always known to be very open about his struggles and drug addiction in the interviews and his music, that vulnerability made his art resonate even more. This gave me an idea of how I could analyze his albums to actually see what emotions he was going through during three different years of his live when he made (not released) albums:
 
@@ -62,7 +62,7 @@ So, here are some results I got, after analysing lyrics in each song using Gemin
     st.divider()
 
 
-    df, long_df = load_data('Streamlit-dashboard\Analysed_data.csv')
+    df, long_df = load_data('Streamlit-dashboard/image.png.csv')
 
     if long_df is not None and df is not None:
         
