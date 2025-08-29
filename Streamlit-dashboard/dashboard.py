@@ -62,7 +62,7 @@ So, here are some results I got, after analysing lyrics in each song using Gemin
     st.divider()
 
 
-    df, long_df = load_data('Streamlit-dashboard/image.png.csv')
+    df, long_df = load_data('Streamlit-dashboard/Analysed_data.csv')
 
     if long_df is not None and df is not None:
         
