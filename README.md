@@ -102,7 +102,7 @@ GEMINI_API_KEY=your_gemini_api_key
 ## 🚀 Run the Dashboard
 
 ```bash
-streamlit run dashboard/dashboard.py
+streamlit run Streamlit-dashboard/dashboard.py
 ```
 
 * Choose an album from the sidebar to explore emotions per song.
