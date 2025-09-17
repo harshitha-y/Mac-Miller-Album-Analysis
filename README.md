@@ -29,8 +29,8 @@ MM-Analysis/
 │   └── requirements.txt      # Dashboard dependencies
 │
 ├── Data-collection-and-analysis/
-│   ├── main.py               # Scripts to pull lyrics and analyze emotions with Gemini
-│   ├── mac_miller_album_analysis.ipynb # Notebook version of analysis
+│   ├── main.py               # Scripts to pull lyrics from APIs
+│   ├── mac_miller_album_analysis.ipynb # Analysis notebook
 │   ├── balloonerism.jsonl
 │   ├── circles.jsonl
 │   └── swimming.jsonl
