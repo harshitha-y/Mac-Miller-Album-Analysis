@@ -2,7 +2,7 @@
 # Mac Miller Music Emotion Analysis 🎵
 
 A personal exploration into the emotional landscape of Mac Miller’s albums. This project dives deep into his lyrics to uncover what he might have been feeling during different phases of his life, highlighting the underlying emotions in his songs across three albums: *Balloonerism*, *Swimming*, and *Circles*.
-Website link: https://mac-miller-album-analysis.streamlit.app/
+
 ---
 
 ## 🌟 Project Overview
@@ -103,6 +103,7 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ```bash
 streamlit run Streamlit-dashboard/dashboard.py
+Website link: https://mac-miller-album-analysis.streamlit.app/
 ```
 
 * Choose an album from the sidebar to explore emotions per song.
