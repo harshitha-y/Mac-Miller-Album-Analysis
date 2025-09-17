@@ -103,9 +103,8 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ```bash
 streamlit run Streamlit-dashboard/dashboard.py
-Website link: https://mac-miller-album-analysis.streamlit.app/
 ```
-
+Website link: https://mac-miller-album-analysis.streamlit.app/
 * Choose an album from the sidebar to explore emotions per song.
 * View bar charts, heatmaps, and pie charts of emotional intensity.
 
