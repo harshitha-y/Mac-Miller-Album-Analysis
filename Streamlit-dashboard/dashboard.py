@@ -56,7 +56,7 @@ def main():
 2. Swimming (2016)       : Attempting sobriety, trying to get out of addiction
 3. Circles (2018)        : Gave into addiction
 
-So, here are some results I got, after analysing lyrics in each song using Gemini LLM, that show different emotions he might’ve been feeling, reflected in his music, along with the overall emotional palette of his songs in the years leading up to his death. I hope you enjoy the analysis.
+So, here are some results I got, after analysing lyrics in each song using Gemini LLM, that show different emotions he might’ve been feeling, reflected in his music, along with the overall emotional palette of his songs in the years leading up to his death. I hope you enjoy the analysis (Still a work in progress).
 
 -Harshitha """)
     st.divider()
